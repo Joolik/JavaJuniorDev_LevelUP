@@ -2,6 +2,8 @@ package airlines.entities.flights;
 
 import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
+import airlines.entities.flights.enums.statuses.FlightStatusesEnum;
+import airlines.entities.flights.enums.statuses.FlightStatusesConverter;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,7 +16,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "flights")
+@Table(name = "flights", uniqueConstraints = {@UniqueConstraint(columnNames = {"flight_name", "date"})})
 @Data
 public class Flight {
 
@@ -26,18 +28,18 @@ public class Flight {
 
     // идентификатор регулярного рейса
     @ManyToOne(optional = true)
-    @JoinColumn(name = "flight_name")
+    @JoinColumn(name = "flight_name", nullable = false)
     private FlightsScheduleRecord flightName;
 
     // дата рейса (без времени)
-    @Column
+    @Column(name = "date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date date;
 
     // статус рейса
-    //TODO do Enum
     @Column(name = "status_id", nullable = false)
-    private int statusId;
+    @Convert(converter = FlightStatusesConverter.class)
+    private FlightStatusesEnum statusId;
 
     // самолет
     @OneToOne
@@ -46,14 +48,14 @@ public class Flight {
     // экипаж
     @ManyToMany
     @JoinTable(name = "crews",
-            joinColumns = @JoinColumn(name="flight_id"),
+            joinColumns = @JoinColumn(name = "flight_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id"))
     private List<Employee> crewMembers;
 
     public Flight() {
     }
 
-    public Flight(FlightsScheduleRecord flightName, Date date, int statusId, PassengerPlane plane, List<Employee> crewMembers) {
+    public Flight(FlightsScheduleRecord flightName, Date date, FlightStatusesEnum statusId, PassengerPlane plane, List<Employee> crewMembers) {
         this.flightName = flightName;
         this.date = date;
         this.statusId = statusId;
@@ -63,13 +65,13 @@ public class Flight {
 
     @Override
     public String toString() {
+// TODO crewMembers
         return "Flight{" +
                 "id=" + id +
                 ", flightName=" + flightName +
                 ", date=" + date +
                 ", statusId=" + statusId +
                 ", plane=" + plane +
-                ", crewMembers=" + crewMembers +
                 '}';
     }
 

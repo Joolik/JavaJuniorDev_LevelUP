@@ -1,70 +1,53 @@
 package airlines.entities.flights;
 
+import airlines.entities.BaseTest;
 import airlines.entities.aircrafts.PassengerPlane;
+import airlines.entities.aircrafts.PlaneType;
 import airlines.entities.employees.Employee;
-import org.junit.After;
+import airlines.entities.flights.enums.AirportCodesEnum;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static airlines.entities.employees.enums.EmployeePositionsEnum.*;
+import static airlines.entities.flights.enums.AirportCodesEnum.*;
+import static airlines.entities.flights.enums.statuses.FlightStatusesEnum.*;
 
-public class FlightTest {
-
-    private EntityManagerFactory factory;
-    private EntityManager manager;
-
-    @Before
-    public void setUp() throws Exception {
-        factory = Persistence.createEntityManagerFactory("TestPersistenceUnit");
-        manager = factory.createEntityManager();
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        if (manager != null) {
-            manager.close();
-        }
-        if (factory != null) {
-            factory.close();
-        }
-    }
+public class FlightTest extends BaseTest {
 
     @Test
     public void entityFlight() throws ParseException {
+
+        PlaneType planeType1 = new PlaneType("B737-800", "Boeing 737-800", 180);
+
         FlightsScheduleRecord scheduleRecord1, scheduleRecord2;
         scheduleRecord1 = new FlightsScheduleRecord().setFlightName("Y7 869")
-                .setDepartureAirport("KJA")
-                .setArriveAirport("BJS")
-                .setPlaneType("Boeing 737-800")
+                .setDepartureAirport(KJA)
+                .setArriveAirport(SVX)
+                .setPlaneType(planeType1)
                 .setDepartureTime(LocalTime.of(20, 30))
                 .setArriveTime(LocalTime.of(1, 20))
                 .setDays("ср сб");
         scheduleRecord2 = new FlightsScheduleRecord().setFlightName("Y5 02")
-                .setDepartureAirport("LED")
-                .setArriveAirport("VVO")
-                .setPlaneType("Airbus A330-200/300")
+                .setDepartureAirport(LED)
+                .setArriveAirport(VVO)
+                .setPlaneType(planeType1)
                 .setDepartureTime(LocalTime.of(22, 50))
                 .setArriveTime(LocalTime.of(9, 05))
                 .setDays("чт");
 
-        PassengerPlane plane = new PassengerPlane("PL5078", "Boeing 737-800", 180);
 
-        Employee pilot1 = new Employee(118, "Михайлов Александр Алексеевич", "командир воздушного судна");
-        Employee pilot2 = new Employee(95, "Тулин Виктор Петрович", "второй пилот");
-        Employee airHostess = new Employee(156, "Свиридова Елена Дмитриевна", "старший бортпроводник");
+        PassengerPlane plane = new PassengerPlane("PL5078", planeType1);
+
+        Employee pilot1 = new Employee(118, "Михайлов Александр Алексеевич", CAPTAIN);
+        Employee pilot2 = new Employee(95, "Тулин Виктор Петрович", FIRST_OFFICER);
+        Employee airHostess = new Employee(156, "Свиридова Елена Дмитриевна", PURSER);
 
         List<Employee> crew1 = new ArrayList<>();
         crew1.add(pilot1);
@@ -75,12 +58,15 @@ public class FlightTest {
         format.applyPattern("yyyy-MM-dd");
         Date date1 = format.parse("2019-11-08");
         Date date2 = format.parse("2019-12-30");
-        Flight flight1 = new Flight(scheduleRecord1, date1, 3, plane, crew1);
-        Flight flight2 = new Flight(scheduleRecord1, date2, 1, null, null);
-        Flight flight3 = new Flight(scheduleRecord2, date2, 2, plane, crew1);
+        Flight flight1 = new Flight(scheduleRecord1, date1, COMPLETED, plane, crew1);
+        Flight flight2 = new Flight(scheduleRecord1, date2, CANCELED, null, null);
+        Flight flight3 = new Flight(scheduleRecord2, date2, NEW, plane, crew1);
 
         manager.getTransaction().begin();
         try {
+
+            manager.persist(planeType1);
+
             manager.persist(scheduleRecord1);
             manager.persist(scheduleRecord2);
 

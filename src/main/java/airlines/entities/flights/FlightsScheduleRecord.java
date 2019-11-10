@@ -1,5 +1,7 @@
 package airlines.entities.flights;
 
+import airlines.entities.aircrafts.PlaneType;
+import airlines.entities.flights.enums.AirportCodesEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -23,29 +25,31 @@ public class FlightsScheduleRecord {
     private String flightName;
 
     // аэропорт отправления
-    @Column(name = "departure_airport", length = 3)
-    private String departureAirport;
+    @Column(name = "departure_airport", length = 3, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private AirportCodesEnum departureAirport;
 
     // аэропорт назначения
-    @Column(name = "arrive_airport", length = 3)
-    private String arriveAirport;
+    @Column(name = "arrive_airport", length = 3, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private AirportCodesEnum arriveAirport;
 
     // время отправления
-    @Column(name = "departure_time")
+    @Column(name = "departure_time", nullable = false)
     private LocalTime departureTime;
 
     // время прибытия
-    @Column(name = "arrive_time")
+    @Column(name = "arrive_time", nullable = false)
     private LocalTime arriveTime;
 
     // тип самолета
-    // TODO do Enum
-    @Column(name = "plane_type")
-    private String planeType;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "plane_type")
+    private PlaneType planeType;
 
     // TODO пока дни недели просто перечисляются в строке
     // дни вылета
-    @Column(length = 30)
+    @Column(length = 30, nullable = false)
     private String days;
 
     // в таблице flights может быть несколько записей на разные даты

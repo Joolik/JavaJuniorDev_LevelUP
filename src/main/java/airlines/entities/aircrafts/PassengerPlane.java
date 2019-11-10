@@ -6,46 +6,40 @@ import javax.persistence.*;
 import java.util.Date;
 
 /*
- * Пассажирские самолеты
+ * Пассажирские самолеты авиакомпании
  */
 
 @Entity
-@Table(name = "passenger_planes")
+@Table(name = "planes")
 @Data
 public class PassengerPlane {
 
-    // Бортовой номер воздушного средства
+    // бортовой регистрационный номер самолета
     @Id
-    @Column
-    private String id;
+    @Column(name = "reg_number", length = 10)
+    private String plainRegNumber;
 
-    //TODO do Enum
-    // Тип воздушного средства
-    @Column(nullable = false, length = 30)
-    private String type;
+    // тип самолета
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "type_id")
+    private PlaneType type;
 
-    // Пассажировместимость
-    @Column(name = "seating_capacity", nullable = false)
-    private int seatingCapacity;
-
-    // Дата последнего тех.осмотра
+    // дата последнего тех.осмотра
     @Column(name = "last_service_date")
     private Date lastServiceDate;
 
     public PassengerPlane() {
     }
 
-    public PassengerPlane(String id, String type, int seatingCapacity) {
-        this.id = id;
+    public PassengerPlane(String id, PlaneType type) {
+        this.plainRegNumber = id;
         this.type = type;
-        this.seatingCapacity = seatingCapacity;
     }
 
     @Override
     public String toString() {
-        return "id='" + id + '\'' +
-                ", type='" + type + '\'' +
-                ", seatingCapacity=" + seatingCapacity +
+        return "plainRegNumber='" + plainRegNumber + '\'' +
+                ", type='" + type.toString() + '\'' +
                 ", lastServiceDate=" + lastServiceDate.toString();
     }
 
