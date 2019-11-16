@@ -1,14 +1,8 @@
 package airlines.entities.flights;
 
-import airlines.entities.BaseTest;
+import airlines.BaseTest;
 import airlines.entities.aircrafts.PlaneType;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import java.time.LocalTime;
 

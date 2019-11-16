@@ -1,10 +1,9 @@
 package airlines.entities.flights;
 
-import airlines.entities.BaseTest;
+import airlines.BaseTest;
 import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.aircrafts.PlaneType;
 import airlines.entities.employees.Employee;
-import airlines.entities.flights.enums.AirportCodesEnum;
 import org.junit.Assert;
 import org.junit.Test;
 

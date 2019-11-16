@@ -5,6 +5,7 @@ import airlines.entities.employees.Employee;
 import airlines.entities.flights.enums.statuses.FlightStatusesEnum;
 import airlines.entities.flights.enums.statuses.FlightStatusesConverter;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,8 +17,9 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "flights", uniqueConstraints = {@UniqueConstraint(columnNames = {"flight_name", "date"})})
-@Data
+@Table(name = "flights",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"flight_name", "date"})})
+@Data @Accessors(chain = true)
 public class Flight {
 
     // уникальный id рейса
@@ -65,7 +67,7 @@ public class Flight {
 
     @Override
     public String toString() {
-// TODO crewMembers
+        // TODO crewMembers
         return "Flight{" +
                 "id=" + id +
                 ", flightName=" + flightName +

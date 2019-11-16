@@ -3,6 +3,7 @@ package airlines.entities.employees;
 import airlines.entities.employees.enums.EmployeePositionsEnum;
 import airlines.entities.flights.Flight;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "employees")
-@Data
+@Data @Accessors(chain = true)
 public class Employee {
 
     // табельный номер сотрудника

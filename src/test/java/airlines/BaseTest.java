@@ -1,4 +1,4 @@
-package airlines.entities;
+package airlines;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,8 +9,8 @@ import javax.persistence.Persistence;
 
 public abstract class BaseTest {
 
-    protected EntityManagerFactory factory;
-    protected EntityManager manager;
+    public EntityManagerFactory factory;
+    public EntityManager manager;
 
     @Before
     public void setUp() throws Exception {

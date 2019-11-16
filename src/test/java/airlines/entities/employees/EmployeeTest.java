@@ -1,6 +1,6 @@
 package airlines.entities.employees;
 
-import airlines.entities.BaseTest;
+import airlines.BaseTest;
 import org.junit.Test;
 
 import static airlines.entities.employees.enums.EmployeePositionsEnum.*;

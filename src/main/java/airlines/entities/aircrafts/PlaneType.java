@@ -1,6 +1,7 @@
 package airlines.entities.aircrafts;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "plane_types")
-@Data
+@Data @Accessors(chain = true)
 public class PlaneType {
 
     // Внутренний идентификатор типа самолета

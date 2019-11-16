@@ -1,6 +1,6 @@
 package airlines.entities.aircrafts;
 
-import airlines.entities.BaseTest;
+import airlines.BaseTest;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;

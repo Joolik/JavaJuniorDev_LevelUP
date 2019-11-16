@@ -1,13 +1,7 @@
 package airlines.entities.aircrafts;
 
-import airlines.entities.BaseTest;
-import org.junit.After;
-import org.junit.Before;
+import airlines.BaseTest;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import static org.junit.Assert.*;
 

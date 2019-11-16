@@ -1,6 +1,7 @@
 package airlines.entities.aircrafts;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "planes")
-@Data
+@Data @Accessors(chain = true)
 public class PassengerPlane {
 
     // бортовой регистрационный номер самолета
@@ -31,8 +32,8 @@ public class PassengerPlane {
     public PassengerPlane() {
     }
 
-    public PassengerPlane(String id, PlaneType type) {
-        this.plainRegNumber = id;
+    public PassengerPlane(String plainRegNumber, PlaneType type) {
+        this.plainRegNumber = plainRegNumber;
         this.type = type;
     }
 
