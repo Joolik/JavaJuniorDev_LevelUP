@@ -36,11 +36,9 @@ public interface FlightDAO {
 
     // добавить самолет к рейсу
     void setPlane(Flight flight, PassengerPlane plane);
-//    void setPlane(int flightId, String plainRegNumber);
 
     // добавить экипаж к рейсу
     void setCrew(Flight flight, List<Employee> crewMembers);
-//    void setCrew(int flightId, List<String> crewMembersIds);
 
     // изменить статус рейса
     void changeFlightStatus(Flight flight, FlightStatusesEnum newFlightStatus);
