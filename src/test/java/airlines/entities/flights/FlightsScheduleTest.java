@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.time.LocalTime;
 
-import static airlines.entities.flights.enums.AirportCodesEnum.*;
+import static airlines.entities.flights.enums.AirportCodes.*;
 import static org.junit.Assert.*;
 
 public class FlightsScheduleTest extends BaseTest {

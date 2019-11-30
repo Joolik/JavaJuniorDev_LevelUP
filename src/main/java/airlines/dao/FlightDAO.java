@@ -3,7 +3,7 @@ package airlines.dao;
 import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
 import airlines.entities.flights.Flight;
-import airlines.entities.flights.enums.statuses.FlightStatusesEnum;
+import airlines.entities.flights.enums.statuses.FlightStatuses;
 
 import java.util.Date;
 import java.util.List;
@@ -41,5 +41,5 @@ public interface FlightDAO {
     void setCrew(Flight flight, List<Employee> crewMembers);
 
     // изменить статус рейса
-    void changeFlightStatus(Flight flight, FlightStatusesEnum newFlightStatus);
+    void changeFlightStatus(Flight flight, FlightStatuses newFlightStatus);
 }

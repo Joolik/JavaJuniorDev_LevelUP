@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static airlines.entities.employees.enums.EmployeePositionsEnum.*;
-import static airlines.entities.flights.enums.AirportCodesEnum.*;
-import static airlines.entities.flights.enums.statuses.FlightStatusesEnum.*;
+import static airlines.entities.employees.enums.EmployeePositions.*;
+import static airlines.entities.flights.enums.AirportCodes.*;
+import static airlines.entities.flights.enums.statuses.FlightStatuses.*;
 
 public class FlightTest extends BaseTest {
 

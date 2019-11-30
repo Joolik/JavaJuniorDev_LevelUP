@@ -3,12 +3,12 @@ package airlines.dao;
 import airlines.BaseTest;
 import airlines.dao.employees.EmployeeDAOImpl;
 import airlines.entities.employees.Employee;
-import airlines.entities.employees.enums.EmployeePositionsEnum;
+import airlines.entities.employees.enums.EmployeePositions;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static airlines.entities.employees.enums.EmployeePositionsEnum.*;
+import static airlines.entities.employees.enums.EmployeePositions.*;
 import static org.junit.Assert.*;
 
 public class EmployeeDAOTest extends BaseTest {
@@ -39,7 +39,7 @@ public class EmployeeDAOTest extends BaseTest {
     public void update() {
         Employee airhostess = new Employee(125, "Белкина Татьяна Дмитриевна", FLIGHT_ATTENDANT);
         String newName = "Михайлова Татьяна Дмитриевна";
-        EmployeePositionsEnum newPosition = PURSER;
+        EmployeePositions newPosition = PURSER;
         manager.getTransaction().begin();
         try {
             manager.persist(airhostess);

@@ -7,7 +7,7 @@ import airlines.entities.aircrafts.PlaneType;
 import airlines.entities.employees.Employee;
 import airlines.entities.flights.Flight;
 import airlines.entities.flights.FlightsScheduleRecord;
-import airlines.entities.flights.enums.statuses.FlightStatusesEnum;
+import airlines.entities.flights.enums.statuses.FlightStatuses;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static airlines.entities.employees.enums.EmployeePositionsEnum.*;
-import static airlines.entities.flights.enums.AirportCodesEnum.*;
-import static airlines.entities.flights.enums.statuses.FlightStatusesEnum.*;
+import static airlines.entities.employees.enums.EmployeePositions.*;
+import static airlines.entities.flights.enums.AirportCodes.*;
+import static airlines.entities.flights.enums.statuses.FlightStatuses.*;
 import static org.junit.Assert.*;
 
 public class FlightDAOTest extends BaseTest {
@@ -54,7 +54,7 @@ public class FlightDAOTest extends BaseTest {
         employee2 = new Employee(156, "Свиридова Елена Дмитриевна", PURSER);
         crew = new ArrayList<>();
         crew.add(employee1);
-        crew.add(employee1);
+        crew.add(employee2);
         SimpleDateFormat format = new SimpleDateFormat();
         format.applyPattern("yyyy-MM-dd");
         date = format.parse("2019-11-08");
@@ -235,7 +235,7 @@ public class FlightDAOTest extends BaseTest {
     @Test
     public void changeFlightStatus() {
         Flight flight = new Flight(scheduleRecord, date, CHECK_IN, plane, crew);
-        FlightStatusesEnum newStatus = BOARDING_COMPLETED;
+        FlightStatuses newStatus = BOARDING_COMPLETED;
         manager.getTransaction().begin();
         try {
             manager.persist(flight);

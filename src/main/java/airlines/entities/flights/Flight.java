@@ -2,7 +2,7 @@ package airlines.entities.flights;
 
 import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
-import airlines.entities.flights.enums.statuses.FlightStatusesEnum;
+import airlines.entities.flights.enums.statuses.FlightStatuses;
 import airlines.entities.flights.enums.statuses.FlightStatusesConverter;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -41,7 +41,7 @@ public class Flight {
     // статус рейса
     @Column(name = "status_id", nullable = false)
     @Convert(converter = FlightStatusesConverter.class)
-    private FlightStatusesEnum statusId;
+    private FlightStatuses statusId;
 
     // самолет
     @OneToOne
@@ -57,7 +57,7 @@ public class Flight {
     public Flight() {
     }
 
-    public Flight(FlightsScheduleRecord flightName, Date date, FlightStatusesEnum statusId, PassengerPlane plane, List<Employee> crewMembers) {
+    public Flight(FlightsScheduleRecord flightName, Date date, FlightStatuses statusId, PassengerPlane plane, List<Employee> crewMembers) {
         this.flightName = flightName;
         this.date = date;
         this.statusId = statusId;

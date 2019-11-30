@@ -1,12 +1,11 @@
 package airlines.entities.flights;
 
 import airlines.entities.aircrafts.PlaneType;
-import airlines.entities.flights.enums.AirportCodesEnum;
+import airlines.entities.flights.enums.AirportCodes;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -28,12 +27,12 @@ public class FlightsScheduleRecord {
     // аэропорт отправления
     @Column(name = "departure_airport", length = 3, nullable = false)
     @Enumerated(EnumType.STRING)
-    private AirportCodesEnum departureAirport;
+    private AirportCodes departureAirport;
 
     // аэропорт назначения
     @Column(name = "arrive_airport", length = 3, nullable = false)
     @Enumerated(EnumType.STRING)
-    private AirportCodesEnum arriveAirport;
+    private AirportCodes arriveAirport;
 
     // время отправления
     @Column(name = "departure_time", nullable = false)

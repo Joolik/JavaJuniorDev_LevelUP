@@ -1,7 +1,7 @@
 package airlines.dao;
 
 import airlines.entities.employees.Employee;
-import airlines.entities.employees.enums.EmployeePositionsEnum;
+import airlines.entities.employees.enums.EmployeePositions;
 
 import java.util.List;
 
@@ -20,6 +20,6 @@ public interface EmployeeDAO {
     Employee findById(String id);
 
     // список сотрудников по должности
-    List<Employee> findByPosision(EmployeePositionsEnum posision);
+    List<Employee> findByPosision(EmployeePositions posision);
 
 }

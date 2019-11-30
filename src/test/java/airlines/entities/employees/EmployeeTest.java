@@ -3,7 +3,7 @@ package airlines.entities.employees;
 import airlines.BaseTest;
 import org.junit.Test;
 
-import static airlines.entities.employees.enums.EmployeePositionsEnum.*;
+import static airlines.entities.employees.enums.EmployeePositions.*;
 import static org.junit.Assert.*;
 
 public class EmployeeTest extends BaseTest {

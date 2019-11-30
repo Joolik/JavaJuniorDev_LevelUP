@@ -4,7 +4,7 @@ import airlines.dao.FlightDAO;
 import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
 import airlines.entities.flights.Flight;
-import airlines.entities.flights.enums.statuses.FlightStatusesEnum;
+import airlines.entities.flights.enums.statuses.FlightStatuses;
 
 import javax.persistence.EntityManager;
 import java.util.Date;
@@ -73,7 +73,7 @@ public class FlightDAOImpl implements FlightDAO {
         manager.merge(flight);
     }
 
-    public void changeFlightStatus(Flight flight, FlightStatusesEnum newFlightStatus) {
+    public void changeFlightStatus(Flight flight, FlightStatuses newFlightStatus) {
         flight.setStatusId(newFlightStatus);
         manager.merge(flight);
     }

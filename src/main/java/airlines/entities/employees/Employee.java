@@ -1,6 +1,6 @@
 package airlines.entities.employees;
 
-import airlines.entities.employees.enums.EmployeePositionsEnum;
+import airlines.entities.employees.enums.EmployeePositions;
 import airlines.entities.flights.Flight;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -29,7 +29,7 @@ public class Employee {
     // должность
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private EmployeePositionsEnum position;
+    private EmployeePositions position;
 
     @ManyToMany
     @JoinTable(name = "crews",
@@ -40,7 +40,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String name, EmployeePositionsEnum position) {
+    public Employee(int id, String name, EmployeePositions position) {
         this.id = id;
         this.name = name;
         this.position = position;

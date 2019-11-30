@@ -2,7 +2,7 @@ package airlines.dao.employees;
 
 import airlines.dao.EmployeeDAO;
 import airlines.entities.employees.Employee;
-import airlines.entities.employees.enums.EmployeePositionsEnum;
+import airlines.entities.employees.enums.EmployeePositions;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -32,7 +32,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return null;
     }
 
-    public List<Employee> findByPosision(EmployeePositionsEnum posision) {
+    public List<Employee> findByPosision(EmployeePositions posision) {
         return null;
     }
 }

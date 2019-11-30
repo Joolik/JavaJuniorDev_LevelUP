@@ -4,14 +4,14 @@ import airlines.BaseTest;
 import airlines.dao.flights.FlightsScheduleDAOImpl;
 import airlines.entities.aircrafts.PlaneType;
 import airlines.entities.flights.FlightsScheduleRecord;
-import airlines.entities.flights.enums.AirportCodesEnum;
+import airlines.entities.flights.enums.AirportCodes;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.LocalTime;
 
-import static airlines.entities.flights.enums.AirportCodesEnum.*;
+import static airlines.entities.flights.enums.AirportCodes.*;
 import static org.junit.Assert.*;
 
 public class FlightScheduleDAOTest extends BaseTest {
@@ -59,7 +59,7 @@ public class FlightScheduleDAOTest extends BaseTest {
                 .setDepartureTime(LocalTime.of(20, 30))
                 .setArriveTime(LocalTime.of(1, 20))
                 .setDays("ср сб");
-        AirportCodesEnum newDepartureAirport = PEK;
+        AirportCodes newDepartureAirport = PEK;
         LocalTime newDepartureTime = LocalTime.of(11, 10);
         manager.getTransaction().begin();
         try {

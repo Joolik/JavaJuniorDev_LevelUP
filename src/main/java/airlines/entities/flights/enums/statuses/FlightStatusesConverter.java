@@ -3,13 +3,13 @@ package airlines.entities.flights.enums.statuses;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import static airlines.entities.flights.enums.statuses.FlightStatusesEnum.*;
+import static airlines.entities.flights.enums.statuses.FlightStatuses.*;
 
 @Converter
-public class FlightStatusesConverter implements AttributeConverter<FlightStatusesEnum, Integer> {
+public class FlightStatusesConverter implements AttributeConverter<FlightStatuses, Integer> {
 
     @Override
-    public Integer convertToDatabaseColumn(FlightStatusesEnum attribute) {
+    public Integer convertToDatabaseColumn(FlightStatuses attribute) {
         if (attribute == null) {
             return null;
         }
@@ -38,7 +38,7 @@ public class FlightStatusesConverter implements AttributeConverter<FlightStatuse
     }
 
     @Override
-    public FlightStatusesEnum convertToEntityAttribute(Integer dbData) {
+    public FlightStatuses convertToEntityAttribute(Integer dbData) {
         if (dbData == null) {
             return null;
         }
