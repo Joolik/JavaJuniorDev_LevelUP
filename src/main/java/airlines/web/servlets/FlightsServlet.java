@@ -49,7 +49,7 @@ public class FlightsServlet extends HttpServlet {
 //            if (flight == null) {       // не найден рейс
 //                req.getRequestDispatcher("/views/flights.jsp").forward(req, resp);
 //            } else {
-//                    resp.sendRedirect("/flights");
+//                    resp.sendRedirect("/flights?id="+flightId);
 //            }
 //        } catch (Exception e) {
 //            req.getRequestDispatcher("/views/flights.jsp").forward(req, resp);

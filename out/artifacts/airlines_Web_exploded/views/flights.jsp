@@ -19,7 +19,7 @@
         <th>From</th>
         <th>To</th>
         <th>Aircraft</th>
-        <th>Crew</th>
+        <th>Count of crew members</th>
     </tr>
     </thead>
 
