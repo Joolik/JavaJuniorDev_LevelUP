@@ -24,7 +24,10 @@ import javax.servlet.annotation.WebListener;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -99,12 +102,12 @@ public class StartupListener implements ServletContextListener {
         Date date1 = null, date2 = null;
         try {
             date1 = format.parse("2019-11-08");
-            date2 = format.parse("2019-12-30");
+            date2 = format.parse(String.valueOf(Instant.now().plus(10, ChronoUnit.DAYS)));
         } catch (ParseException e) {
             e.printStackTrace();
         }
         Flight flight1 = new Flight(scheduleRecord1, date1, COMPLETED, plane1, crew);
-        Flight flight2 = new Flight(scheduleRecord1, date2, CANCELED, null, null);
+        Flight flight2 = new Flight(scheduleRecord1, date2, NEW, null, null);
         Flight flight3 = new Flight(scheduleRecord2, date2, NEW, null, null);
         manager.getTransaction().begin();
         try {

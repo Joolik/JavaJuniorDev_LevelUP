@@ -28,12 +28,14 @@ public class LoginServlet extends HttpServlet {
         try {
             User user = userDAO.findByLoginAndPassword(login, password);
             if (user == null) {       // ошибка "неверный логин/пароль"
-                resp.getWriter().print("Wrong login/password!");
                 req.getRequestDispatcher("/index.jsp").forward(req, resp);
-            } else if (user.getAdmin()) {
-                resp.sendRedirect("/views/flights.jsp");
             } else {
-                resp.sendRedirect("/views/schedule.jsp");
+                req.getSession().setAttribute("userLogin", user.getLogin());
+                if (user.getAdmin()) {
+                    resp.sendRedirect("/flights");
+                } else {
+                    resp.sendRedirect("/views/schedule.jsp");
+                }
             }
         } catch (Exception e) {
             req.getRequestDispatcher("/index.jsp").forward(req, resp);

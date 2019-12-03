@@ -40,4 +40,12 @@ public class PlaneType {
         this.seatingCapacity = seatingCapacity;
     }
 
+    @Override
+    public String toString() {
+        return "PlaneType{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", seatingCapacity=" + seatingCapacity +
+                '}';
+    }
 }

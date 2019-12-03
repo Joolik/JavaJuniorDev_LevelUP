@@ -39,9 +39,9 @@ public class PassengerPlane {
 
     @Override
     public String toString() {
-        return "plainRegNumber='" + plainRegNumber + '\'' +
-                ", type='" + type.toString() + '\'' +
-                ", lastServiceDate=" + lastServiceDate.toString();
+        return "plainRegNumber='" + plainRegNumber + '\'';
+//                ", type='" + type.toString() + '\'' +
+//                ", lastServiceDate=" + lastServiceDate.toString();
     }
 
 }

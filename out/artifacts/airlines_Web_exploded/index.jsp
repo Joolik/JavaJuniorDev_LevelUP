@@ -20,7 +20,7 @@
     <p>Password
     <input type="password" name="password">
     </p>
-    <input type="submit">
+    <input type="submit" value="Login">
 
     <c:if test="${not empty param['login']}">
     <p class="error">

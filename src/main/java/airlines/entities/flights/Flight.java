@@ -29,7 +29,7 @@ public class Flight {
     private int id;
 
     // идентификатор регулярного рейса
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "flight_name", nullable = false)
     private FlightsScheduleRecord flightName;
 
