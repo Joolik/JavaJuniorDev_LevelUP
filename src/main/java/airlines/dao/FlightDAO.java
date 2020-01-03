@@ -4,10 +4,12 @@ import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
 import airlines.entities.flights.Flight;
 import airlines.entities.flights.enums.statuses.FlightStatuses;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
+@Repository
 public interface FlightDAO {
 
     // создание рейса

@@ -5,6 +5,7 @@ import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
 import airlines.entities.flights.Flight;
 import airlines.entities.flights.enums.statuses.FlightStatuses;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.Date;
@@ -14,6 +15,7 @@ public class FlightDAOImpl implements FlightDAO {
 
     private final EntityManager manager;
 
+    @Autowired
     public FlightDAOImpl(EntityManager manager) {
         this.manager = manager;
     }

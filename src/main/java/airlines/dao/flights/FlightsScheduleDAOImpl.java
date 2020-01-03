@@ -2,6 +2,7 @@ package airlines.dao.flights;
 
 import airlines.dao.FlightScheduleDAO;
 import airlines.entities.flights.FlightsScheduleRecord;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -10,6 +11,7 @@ public class FlightsScheduleDAOImpl implements FlightScheduleDAO {
 
     private final EntityManager manager;
 
+    @Autowired
     public FlightsScheduleDAOImpl(EntityManager manager) {
         this.manager = manager;
     }

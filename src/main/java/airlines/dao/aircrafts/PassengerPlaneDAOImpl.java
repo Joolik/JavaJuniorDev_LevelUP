@@ -2,6 +2,7 @@ package airlines.dao.aircrafts;
 
 import airlines.dao.PassengerPlaneDAO;
 import airlines.entities.aircrafts.PassengerPlane;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -10,6 +11,7 @@ public class PassengerPlaneDAOImpl implements PassengerPlaneDAO {
 
     private final EntityManager manager;
 
+    @Autowired
     public PassengerPlaneDAOImpl(EntityManager manager) {
         this.manager = manager;
     }

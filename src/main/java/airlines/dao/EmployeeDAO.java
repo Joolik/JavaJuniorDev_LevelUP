@@ -2,9 +2,11 @@ package airlines.dao;
 
 import airlines.entities.employees.Employee;
 import airlines.entities.employees.enums.EmployeePositions;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface EmployeeDAO {
 
     // добавление сотрудника

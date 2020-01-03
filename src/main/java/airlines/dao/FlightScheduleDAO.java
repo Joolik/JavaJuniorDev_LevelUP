@@ -2,9 +2,11 @@ package airlines.dao;
 
 
 import airlines.entities.flights.FlightsScheduleRecord;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface FlightScheduleDAO {
 
     // создание расписания рейса

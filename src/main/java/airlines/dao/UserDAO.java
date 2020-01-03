@@ -1,7 +1,9 @@
 package airlines.dao;
 
 import airlines.entities.employees.User;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserDAO {
 
     // добавление

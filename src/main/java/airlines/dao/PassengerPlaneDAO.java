@@ -2,9 +2,11 @@ package airlines.dao;
 
 import airlines.entities.aircrafts.PassengerPlane;
 import airlines.entities.employees.Employee;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface PassengerPlaneDAO {
 
     // добавление самолета

@@ -2,6 +2,7 @@ package airlines.dao.employees;
 
 import airlines.dao.UserDAO;
 import airlines.entities.employees.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 
@@ -9,6 +10,7 @@ public class UserDAOImpl implements UserDAO {
 
     private final EntityManager manager;
 
+    @Autowired
     public UserDAOImpl(EntityManager manager) {
         this.manager = manager;
     }
